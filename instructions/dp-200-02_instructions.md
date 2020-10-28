@@ -100,18 +100,20 @@ The main tasks for this exercise are as follows:
 1. In the **Storage account** blade, click **Create**.
 
 1. From the **Create storage account*** blade, create the first storage account with the following settings:
-
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
-
+    
     - Subscription: the name of the subscription you are using in this lab
+    
+    - Resource group name: **awrgstudxx**, where **xx** are your initials.
 
     - Storage account name: **awsastudxx**, where **xx** are your initials.
 
-    - Location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
+    - Location: the name of the Azure region which is closest to you.
 
     - Performance: **Standard**.
 
     - Account kind: **StorageV2 (general purpose v2)**.
+    
+    - Replication: **Locally-redundant storage (LRS)**.
 
 1. In the **Create storage account*** blade, click **Review + create**.
 
@@ -123,9 +125,9 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, a message states that _Your deployment is complete_, click on the button **Go to resource**.
 
-1. In the **awsastudxx** screen, where **xx** are your initials, under the **Services** click **Blobs**.
+1. In the **awsastudxx** screen, where **xx** are your initials. In the left pane, under the **Blob service** click **Containers**.
 
-1. In the **awsastudxx - Blobs** screen, at the top left, click on the  **+ Container** button.
+1. In the **awsastudxx - Containers** screen, at the top left, click on the  **+ Container** button.
 
 1. From the **New Container*** screen, create a container with the following settings:
 
@@ -133,9 +135,9 @@ The main tasks for this exercise are as follows:
 
     - Public access level: **Private (no anonymous access)**
 
-1. In the **New Container*** screen, click **OK**.
+1. In the **New Container*** screen, click **Create**.
 
-   > **Note**: The creation of the container is immediate and will appear in the list of the **awrgstudxx - Blobs** screen.
+   > **Note**: The creation of the container is immediate and will appear in the list of the **awrgstudxx - Containers** screen.
 
 1. Repeat steps 4 -5 to create a container named **data** with the public access level of **Private (no anonymous access)**
 
@@ -143,7 +145,7 @@ The main tasks for this exercise are as follows:
 
 ### Task 4: Upload some graphics to the images container of the storage account.
 
-1. In the Azure portal, in the **awsastudxx - Blobs** screen, click on the **images** item in the list.
+1. In the Azure portal, in the **awsastudxx - Containers** screen, click on the **images** item in the list.
 
 1. In the **images** screen, click on the **Upload** button.
 
@@ -165,7 +167,7 @@ The main tasks for this exercise are as follows:
 
 1. Close the **Upload blob** screen, and close the **images** screen.
 
-1. In the Azure portal, in the **awsastudxx - Blobs** screen, click on the **data** item in the list.
+1. In the Azure portal, in the **awsastudxx - Containers** screen, click on the **data** item in the list.
 
 1. In the **data** screen, click on the **Upload** button.
 
@@ -207,21 +209,23 @@ The main tasks for this exercise are as follows:
 
 1. From the **Create storage account*** blade, create the first storage account with the following settings:
 
-    - Resource group name: **awrgstudxx**, where **xx** are your initials.
-
     - Subscription: the name of the subscription you are using in this lab
+
+    - Resource group name: **awrgstudxx**, where **xx** are your initials.
 
     - Storage account name: **awdlsstudxx**, where **xx** are your initials.
 
-    - Location: the name of the Azure region which is closest to the lab location and where you can provision Azure VMs.
+    - Location: the name of the Azure region which is closest to you.
 
     - Performance: **Standard**.
 
     - Account kind: **StorageV2 (general purpose v2)**.
+    
+    - Replication: **Locally-redundant storage (LRS)**.
 
-1. In the **Advanced** tab, click **Enabled** under **Hierarchical namespace**.
+1. In the **Advanced** tab, click **Enabled** next to **Hierarchical namespace** under Data Lake Storage Gen2.
 
-1. In the **Create storage account*** blade, click **Review + create**.
+1. Click on **Review + create**.
 
 1. After the validation of the  **Create storage account*** blade, click **Create**.
 
@@ -231,19 +235,19 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, a message states that _Your deployment is complete_, click on the button **Go to resource**.
 
-1. In the **awdlsstudxx** screen, where **xx** are your initials, under the **Services** click **Data Lake Gen2 file systems**.
+1. In the **awdlsstudxx** screen, where **xx** are your initials, under the **Blob service** click **Containers**.
 
-1. In the **awrgstudxx - File systems** screen, at the top left, click on the  **+ File systems** button.
+1. In the **awrgstudxx - Containers** screen, at the top left, click on the  **+ Container** button.
 
-1. From the **Add file systems** screen, create a file system with the following settings:
+1. From the **New container** screen, create a container with the following settings:
 
     - Name: **data**.
 
-1. In the **Add file systems*** screen, click **OK**.
+1. In the **New container*** screen, click **Create**.
 
-   > **Note**: The creation of the file system is immediate and will appear in the list of the **awdlsstudxx - File systems** screen.
+   > **Note**: The creation of the container is immediate and will appear in the list of the **awdlsstudxx - Containers** screen.
 
-> **Result**: After you completed this exercise, you have created a Data Lake Gen II Storage account named awdlsstudxx that has a file system named data.
+> **Result**: After you completed this exercise, you have created a Data Lake Gen II Storage account named awdlsstudxx that has a container named data.
 
 ## Exercise 4: Upload data into Azure Data Lake.
   
@@ -253,33 +257,19 @@ Individual exercise
   
 The main task for this exercise are as follows:
 
-1. Install and start Microsoft Azure Storage Explorer
+1. Install and start Microsoft Azure Storage Explorer. This is already installed on the lab VM provided through esi.learnondemand.net. If you are not working with the lab VM you can install Azure Storage Explorer from [here](https://azure.microsoft.com/en-us/features/storage-explorer/) where there is a button that states **Download Storage Explorer free**. Click on this button.
 
 1. Upload some data files to the data container of the Data Lake Gen II Storage Account.
 
 ### Task 1: Install Storage Explorer.
 
-1. In the Azure portal, in the **awdlsstudxx - File systems** screen, click on the **data** item in the list.
+1. In the lab VM, open the Azure Storage Explorer.
 
-1. A screen appears stating Azure Data Lake Storage Gen2 is now available in Storage Explorer, click on the **Download Azure Storage Explorer** link.
+1. In Storage Explorer, select the icon of the person which is called **Manage Accounts** to go to the **Account Management Panel**.
 
-1. You are taken to the following web page for [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) where there is a button that states **Download Storage Explorer free**. click on this button.
+1. The left pane now displays all the Azure accounts you've signed in to which will be empty. To connect to new account, select **Add an account**
 
-1. In the Microsoft Edge dialog box click **Save**, when the download is complete, click on **View downloads**, in the download screen in Microsoft Edge, click on **Open folder**. This will open the Downloads folder.
-
-1. Double click the file **StorageExplorer.exe**, in the User Account Control dialog box click on **OK**.
-
-1. In the License Agreement screen, select the radio button next to **I agree the agreement**, and then click on **Install**.
-
-   > **Note**: The installation of Storage Explorer can take approximately 4 minutes. Azure Storage Explorer allows you to easily manage the contents of your storage account with Azure Storage Explorer. Upload, download, and manage blobs, files, queues, tables, and Cosmos DB entities. It also enables you to gain easy access to manage your virtual machine disks.
-
-1. On completion of the installation, ensure that the checkbox next to **Launch Microsoft Azure Storage Explorer** is selected and then click **Finish**. Microsoft Azure Storage Explorer opens up and lists your subscriptions.
-
-1. In Storage Explorer, select **Manage Accounts** to go to the **Account Management Panel**.
-
-1. The left pane now displays all the Azure accounts you've signed in to. To connect to another account, select **Add an account**
-
-1. If you want to sign into a national cloud or an Azure Stack, click on the Azure environment dropdown to select which Azure cloud you want to use. Once you have chosen your environment, click the **Sign in...** button.
+1. In the pop up to connect to Azure Storaeg, select to **Add an Azure Account** and click **Next**. Sign in to your account. 
 
 1. After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account are added to the left pane. Select the Azure subscriptions that you want to work with, and then select **Apply**. The left pane displays the storage accounts associated with the selected Azure subscriptions.
 
@@ -289,7 +279,7 @@ The main task for this exercise are as follows:
 
 1. Under **Storage Accounts**, search for the storage account **awdlsstudxx (ADLS Gen2)**, and click on the arrow to expand it.
 
-1. Under **Blob Containers**, click on the arrow to expand it and show the **data** file system. Click on the **data** file system.
+1. Under **Blob Containers**, click on the arrow to expand it and show the **data** container. Click on the **data** container.
 
 1. In Azure Storage Explorer, click on the arrow next to the **Upload** icon, and click on the **Upload Files..**.
 
